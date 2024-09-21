@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import useAuth from '../hooks/useAuth';
 
@@ -9,7 +10,14 @@ import styles from '../styles/Login.module.scss';
 const LoginPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { login } = useAuth();
+  const { isLoggedIn, login } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate('/feed');
+    }
+  }, [isLoggedIn]);
 
   return (
     <div className={styles.container}>
