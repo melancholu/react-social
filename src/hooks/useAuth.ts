@@ -31,23 +31,9 @@ export default function useAuth() {
     }
   };
 
-  const refresh = async () => {
-    try {
-      const response = await AuthAPI.refresh();
-
-      localStorage.setItem(ACCESS_TOKEN_KEY, response.accessToken);
-      localStorage.setItem(REFRESH_TOKEN_KEY, response.refreshToken);
-
-      return response;
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return {
     isLoggedIn,
     login,
     logout,
-    refresh,
   };
 }
