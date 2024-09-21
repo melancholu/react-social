@@ -15,11 +15,6 @@ const AuthAPI = {
 
     return response.data;
   },
-  async refresh(): Promise<Token> {
-    const response = await base.post('/auth/refresh', {});
-
-    return response.data;
-  },
 };
 
 export default AuthAPI;
