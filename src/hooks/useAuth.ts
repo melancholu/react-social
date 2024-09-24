@@ -1,9 +1,14 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import AuthAPI from '../apis/authAPI';
 import { ACCESS_TOKEN_KEY, REFRESH_TOKEN_KEY } from '../constants';
 
 export default function useAuth() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem(ACCESS_TOKEN_KEY) !== null;
+    setIsLoggedIn(isLoggedIn);
+  }, []);
 
   const login = async (email: string, password: string) => {
     try {
