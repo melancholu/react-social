@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import styles from '../styles/TextInput.module.scss';
 
 interface TextInputProps {
@@ -7,7 +7,11 @@ interface TextInputProps {
   _onChange: (value: string) => void;
 }
 
-function TextInput({ name, placeholder, _onChange }: TextInputProps) {
+const TextInput: React.FC<TextInputProps> = ({
+  name,
+  placeholder,
+  _onChange,
+}) => {
   const [customValue, setCustomValue] = useState('');
 
   const handleChange = (event: any) => {
@@ -25,6 +29,6 @@ function TextInput({ name, placeholder, _onChange }: TextInputProps) {
       onChange={handleChange}
     />
   );
-}
+};
 
 export default TextInput;

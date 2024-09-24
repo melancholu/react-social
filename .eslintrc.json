@@ -30,7 +30,8 @@
     "@typescript-eslint/no-unused-vars": [
       "error",
       { "argsIgnorePattern": "^_" }
-    ]
+    ],
+    "jsx-a11y/click-events-have-key-events": "off"
   },
   "settings": {
     "react": {
