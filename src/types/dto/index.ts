@@ -22,8 +22,17 @@ export type Meta = {
   next_page: number;
   page_num: number;
 };
+
 export type Feed = {
   uuid: string;
+  user: User;
+  created: Date;
+  content: string;
+};
+
+export type Comment = {
+  uuid: string;
+  feed: Feed;
   user: User;
   created: Date;
   content: string;
