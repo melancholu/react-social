@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
 import styles from '../styles/FeedDetail.module.scss';
+import CommentList from '../components/CommentList';
 
 const FeedDetailPage: React.FC = () => {
   const navigate = useNavigate();
@@ -26,6 +27,12 @@ const FeedDetailPage: React.FC = () => {
         <div className={styles.content}>
           <p>{feed.content}</p>
         </div>
+      </div>
+      <div className={styles.create}>
+        <span>create comment</span>
+      </div>
+      <div className={styles.comment}>
+        <CommentList feedUuid={feed.uuid} />
       </div>
     </div>
   );
