@@ -25,15 +25,15 @@ export type Meta = {
 
 export type Feed = {
   uuid: string;
-  user: User;
-  created: Date;
-  content: string;
+  user?: User;
+  created?: Date;
+  content?: string;
 };
 
 export type Comment = {
-  uuid: string;
-  feed: Feed;
-  user: User;
-  created: Date;
-  content: string;
+  uuid?: string;
+  feed?: Feed;
+  user?: User;
+  created?: Date;
+  content?: string;
 };

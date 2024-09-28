@@ -8,14 +8,16 @@ interface CommentItemProps {
 }
 
 const CommentItem: React.FC<CommentItemProps> = ({ comment }) => {
+  const created = comment.created
+    ? new Date(comment.created).toLocaleDateString()
+    : new Date().toLocaleDateString();
+
   return (
     <div className={styles.container}>
       <div className={styles.post}>
         <div className={styles.header}>
-          <span className={styles.username}>{comment.user.name}</span>
-          <span className={styles.created}>
-            {new Date(comment.created).toLocaleDateString()}
-          </span>
+          <span className={styles.username}>{comment.user?.name ?? ''}</span>
+          <span className={styles.created}>{created}</span>
         </div>
         <div className={styles.content}>
           <p>{comment.content}</p>
