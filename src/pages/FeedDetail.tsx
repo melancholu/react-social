@@ -1,13 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 
-import styles from '../styles/FeedDetail.module.scss';
+import useComment from '../hooks/useComment';
+import ActionButton from '../components/ActionButton';
 import CommentList from '../components/CommentList';
+import TextInput from '../components/TextInput';
+import styles from '../styles/FeedDetail.module.scss';
 
 const FeedDetailPage: React.FC = () => {
+  const [content, setContent] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
   const feed = location.state.feed;
+  const { createComment } = useComment(feed.uuid);
 
   useEffect(() => {
     if (!location.state || !location.state.feed) {
@@ -29,7 +34,12 @@ const FeedDetailPage: React.FC = () => {
         </div>
       </div>
       <div className={styles.create}>
-        <span>create comment</span>
+        <TextInput
+          name="content"
+          placeholder="content"
+          _onChange={(value) => setContent(value)}
+        />
+        <ActionButton onClick={() => createComment(content)} text="reply" />
       </div>
       <div className={styles.comment}>
         <CommentList feedUuid={feed.uuid} />

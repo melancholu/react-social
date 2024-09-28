@@ -11,6 +11,29 @@ export default function useComment(feedUuid: string) {
     getComments();
   }, []);
 
+  const createComment = async (content: string) => {
+    try {
+      if (isLoading) {
+        return;
+      }
+
+      setIsLoading(true);
+
+      const comment: Comment = {
+        feed: {
+          uuid: feedUuid,
+        },
+        content,
+      };
+      const response = await CommentAPI.createComment(comment);
+
+      setComments([...comments, response]);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const getComments = async () => {
     try {
       if (isLoading) {
@@ -35,6 +58,7 @@ export default function useComment(feedUuid: string) {
   return {
     comments,
     hasMore: (meta?.cur_page ?? 0) < (meta?.page_num ?? 0),
+    createComment,
     fetchMore: getComments,
   };
 }

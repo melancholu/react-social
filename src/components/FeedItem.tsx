@@ -9,6 +9,9 @@ interface FeedItemProps {
 }
 
 const FeedItem: React.FC<FeedItemProps> = ({ feed }) => {
+  const created = feed.created
+    ? new Date(feed.created).toLocaleDateString()
+    : new Date().toLocaleDateString();
   const navigate = useNavigate();
 
   const onClickFeed = () => {
@@ -19,10 +22,8 @@ const FeedItem: React.FC<FeedItemProps> = ({ feed }) => {
     <div className={styles.container} onClick={onClickFeed}>
       <div className={styles.post}>
         <div className={styles.header}>
-          <span className={styles.username}>{feed.user.name}</span>
-          <span className={styles.created}>
-            {new Date(feed.created).toLocaleDateString()}
-          </span>
+          <span className={styles.username}>{feed.user?.name}</span>
+          <span className={styles.created}>{created}</span>
         </div>
         <div className={styles.content}>
           <p>{feed.content}</p>
