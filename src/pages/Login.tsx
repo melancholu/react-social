@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import useAuth from '../hooks/useAuth';
-
+import { useAuth } from '../context/AuthContext';
 import ActionButton from '../components/ActionButton';
 import TextInput from '../components/TextInput';
 import styles from '../styles/Login.module.scss';
