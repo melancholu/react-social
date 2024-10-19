@@ -8,6 +8,7 @@ import FeedPage from './pages/Feed';
 import FeedDetailPage from './pages/FeedDetail';
 import LoginPage from './pages/Login';
 import ProtectedRoute from './pages/ProtectedRoute';
+import UserPage from './pages/User';
 
 function App() {
   return (
@@ -29,6 +30,14 @@ function App() {
               element={
                 <NavBar>
                   <FeedDetailPage />
+                </NavBar>
+              }
+            />
+            <Route
+              path="/user"
+              element={
+                <NavBar>
+                  <UserPage />
                 </NavBar>
               }
             />

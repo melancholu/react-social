@@ -36,6 +36,9 @@ const NavBar: React.FC<NavBarProps> = ({ children }) => {
               <li>
                 <Link to="/feed">Feed</Link>
               </li>
+              <li>
+                <Link to="/user">User</Link>
+              </li>
             </>
           )}
         </ul>
