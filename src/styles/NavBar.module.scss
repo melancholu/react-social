@@ -1,0 +1,30 @@
+.nav_bar {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    background-color: #333;
+}
+  
+.nav_bar li {
+    margin: 0 10px;
+}
+
+.nav_bar li a {
+    color: white;
+    padding: 14px 20px;
+    text-decoration: none;
+    display: block;
+}
+
+.nav_bar li a:hover {
+    background-color: #575757;
+}
+
+.nav_bar img {
+    height: 40px;
+}
+
+.content {
+    padding: 20px;
+}
