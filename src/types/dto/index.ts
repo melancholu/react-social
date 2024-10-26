@@ -28,6 +28,8 @@ export type Feed = {
   user?: User;
   created?: Date;
   content?: string;
+  likes?: number;
+  liked?: boolean;
 };
 
 export type Comment = {

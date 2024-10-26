@@ -36,3 +36,27 @@
   font-size: 20px;
   color: #333;
 }
+
+.footer {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: row;
+  align-items: center;
+}
+
+.footer button {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  border: none;
+}
+
+.footer img {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.fotter span {
+  display: inline;
+}
