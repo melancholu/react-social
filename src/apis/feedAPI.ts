@@ -12,6 +12,11 @@ const FeedAPI = {
 
     return response.data;
   },
+  async like(feed: Feed): Promise<void> {
+    const response = await base.post('/feed/like', feed);
+
+    return response.data;
+  },
 };
 
 export default FeedAPI;
