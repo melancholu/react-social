@@ -46,7 +46,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       await AuthAPI.logout();
 
       localStorage.removeItem(ACCESS_TOKEN_KEY);
-      localStorage.setremoveItemItem(REFRESH_TOKEN_KEY);
+      localStorage.removeItem(REFRESH_TOKEN_KEY);
       setIsLoggedIn(false);
     } catch (error) {
       console.log(error);
